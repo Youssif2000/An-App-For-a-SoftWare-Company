@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:composition template="common.xhtml">
+            
+            <ui:define name="content">
+    <head>
+        <title>TODO supply a title</title>
+       
+        <meta name="viewport" content="width=device-width , initial-scale=1" />
+      
+    </head>
+    <body>
+        <style>
+            
+            
+            .dbtn{
+                         border: none;
+                border-radius: 50px;
+                 background-image: linear-gradient( #BF9210  ,#D5A313 , #E8B31A , #EAC55B , #A48F51 , #6C5E34 , #27241D );
+                background-size: 800px;
+                box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24); 
+              cursor: pointer;
+              outline: none; 
+              transition: 0.2s all; 
+                    }
+                    
+                    .btemp, .btdept , .btproj{
+                        
+                padding: 50px;
+                margin: 50px;
+                font-family: cursive;
+                                font-size: 15px;
+                border: none;
+                border-radius: 50px;
+                 background-image: linear-gradient( #BF9210  ,#D5A313 , #E8B31A , #EAC55B , #A48F51 , #6C5E34 , #27241D );
+                background-size: 800px;
+                box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24); 
+              cursor: pointer;
+              outline: none; 
+              transition: 0.2s all; 
+              animation: hover infinite;
+            }
+            @keyframes hover{
+                0%{
+                    background-position: right;
+                }
+                100%{
+            background-position: left;
+
+                }
+            }
+            .btnemp:active{
+                transform: scale(0.98);
+                 box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24); 
+            }
+            
+                    
+            .btform{
+                padding-left:  100px;
+            }
+              #dept{
+               margin-left:   200px;
+              padding-left:  200px;
+              }
+              #emp{
+             margin-left:   205px;
+               padding-left:  205px;
+                  
+                    }
+                    .datatable{
+                        margin: auto;
+                    }
+                    
+               
+             #proj{
+                  margin-left:   210px;
+                   padding-left:  210px;
+                      }
+       
+            .column{
+                        padding: 20px;
+                        margin: 20px;
+                        
+                        font-size: 20px; 
+                        font-weight: normal;
+                        
+                    }
+                    h2,h3{
+                        color: #6C5E34;
+                    }
+                    #mysectionpro{
+                        padding-left: 50px;
+                        
+                    }
+                    #mysectiondep{
+                         padding-left: 130px;
+                         margin-bottom: 50px;
+                    }
+                    @media(max-width: 650px){
+                        h2{
+                            font-size: 20px;
+                        }
+                        .column{
+                            font-size: 15px;
+                           
+                        }
+                        .btdept , .btemp , .btproj{
+                 padding: 20px;
+                margin: 20px;
+                font-family: cursive;
+                font-size: 10px;
+                border: none;
+                border-radius: 30px;
+               
+                        }
+                        #aa{
+                            margin-left: 20px;
+                      }
+                        #dept{
+                            margin-left:   -200px;
+                            padding-left:  -200px;
+                        }
+                        #emp{
+                            margin-left:   -200px;
+                            padding-left:  -200px;
+                        }
+                          #proj{
+                  margin-left:   -200px;
+                   padding-left:  -200px;
+                      }
+                       
+                        
+                   .datatable{
+                     display: block;
+                     overflow: auto; 
+                     
+                      }
+                      #bdn{
+                          margin-right: 20px;
+                      } 
+                    }
+                   
+         
+
+            
+        </style>
+        
+        
+                 
+                    <h1 id="aa" align="center" style="color: goldenrod ; padding-right: 35px; padding-top: 50px ; text-align: center">Hello in Your Main Page  </h1> 
+       <f:view >
+           <h:form class="btform">
+               <div id="bdn">
+                  <div id="dept"> <h:commandButton id="dep" class="btdept" action="${formController.GoToDepartementpage()}" value="Departments" /></div>
+              <div id="emp"> <h:commandButton class="btemp" action="${formController.GoToEmployeepage()}" value="Employees" /></div>
+               <div id="proj"><h:commandButton  class="btproj" action="${formController.GoToProjectpage()}" value="Projects" /></div>
+               </div>
+           </h:form>    
+       </f:view>
+                     <script>alert('Welcome in your App');</script>
+       <h1  align="center" style="color: goldenrod ; padding-top: 50px ">Daily Report</h1> 
+       
+         <section id="mysection">
+           <h1 align="center" style="color: black ; padding-top: 50px ">Employee</h1> 
+           
+           <h:dataTable class="datatable" value="#{formController.GetAll()}" var="thing"  > 
+             <h:column >
+                 <f:facet  name="header"><h2>Id</h2></f:facet>
+                <h:outputText  class="column" value="#{thing.empid}" />
+            </h:column>
+          <h:column>
+                <f:facet   name="header"><h2>EmpName</h2></f:facet>
+                <h:outputText class="column" value="#{thing.name}" />
+            </h:column>
+            <h:column>
+                <f:facet  name="header"><h2>Address</h2></f:facet>
+                <h:outputText class="column" value="#{thing.address}" />
+            </h:column>
+            <h:column>
+                <f:facet  name="header"><h2>Salary</h2></f:facet>
+                <h:outputText class="column" value="#{thing.salary}" />
+            </h:column>
+            <h:column>
+                <f:facet  name="header"><h2>Hiring Date</h2></f:facet>
+                <h:outputText class="column" value="#{thing.hiringDate}" />
+            </h:column>
+            <h:column>
+                <f:facet  name="header"><h2>Age</h2></f:facet>
+                <h:outputText class="column" value="#{thing.age}" />
+            </h:column>
+           
+           <h:column>
+                <f:facet class="column" name="header"><h2>Define</h2></f:facet>
+                <h:form>
+                    <h:commandButton class="dbtn" action="#{formController.OnShow(thing)}" value="Choose" />
+               </h:form>
+            </h:column>
+        </h:dataTable>             
+            
+        </section>
+       <hr></hr>
+         <section id="mysectionpro">
+            <h2 align="center" style="color: black ; padding-right: 70px; margin: auto; padding-top: 50px ">Projects</h2> 
+           
+             <h:dataTable class="datatable" value="#{formController2.GetAllproj()}" var="thing" > 
+            <h:column>
+                <f:facet name="header"><h2>Id</h2></f:facet>
+                <h:outputText class="column" value="#{thing.projId}" />
+            </h:column>
+          <h:column>
+                <f:facet name="header"><h2>ProjectName</h2></f:facet>
+                <h:outputText class="column" value="#{thing.projName}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header"><h2>projectManger</h2></f:facet>
+                <h:outputText class="column" value="#{thing.projManger}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header"><h2>clientName</h2></f:facet>
+                <h:outputText class="column" value="#{thing.clientName}" />
+            </h:column>
+           <h:column>
+                <f:facet name="header"><h2>Define</h2></f:facet>
+                <h:form>
+               <h:commandButton class="dbtn" action="#{formController2.OnShowproj(thing)}" value="Choose" />
+               </h:form>
+            </h:column>
+        </h:dataTable>             
+        </section>
+       <hr></hr>
+         <section id="mysectiondep">
+            <h2 align="center" style="color: black ; margin: auto; padding-top: 50px ">Department</h2> 
+           
+            <h:dataTable class="datatable" value="#{formController3.GetAllED()}" var="thing" > 
+            <h:column>
+                <f:facet name="header"><h2>Id</h2></f:facet>
+                <h:outputText class="column" value="#{thing.id}" />
+            </h:column>
+          <h:column>
+                <f:facet name="header"><h2>DeptName</h2></f:facet>
+                <h:outputText class="column" value="#{thing.name}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header"><h2>Value</h2></f:facet>
+                <h:outputText class="column" value="#{thing.value}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header"><h2>bestEmp</h2></f:facet>
+                <h:outputText class="column" value="#{thing.empId}" />
+            </h:column>
+           
+           <h:column>
+                <f:facet name="header"><h2>Define</h2></f:facet>
+                <h:form>
+               <h:commandButton class="dbtn" action="#{formController3.OnShowED(thing)}" value="Choose" />
+               </h:form>
+            </h:column>
+        </h:dataTable>              
+        </section>
+       <hr></hr>
+    </body>
+                </ui:define>
+            </ui:composition>
+</html>
+        

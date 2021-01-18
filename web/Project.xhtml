@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+     <ui:composition template="common.xhtml">
+            
+             <ui:define name="content">
+    <head>
+        <title>TODO supply a title</title>
+         <meta name="viewport" content="width=device-width , initial-scale=1" />
+    </head>
+    <body>
+       
+                 
+                 <style>
+                    .in{
+                   margin-top: 20px;
+                   margin-left: 10px;
+                    }
+                    .dbtn{
+                         border: none;
+                border-radius: 50px;
+                 background-image: linear-gradient( #BF9210  ,#D5A313 , #E8B31A , #EAC55B , #A48F51 , #6C5E34 , #27241D );
+                background-size: 800px;
+                box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24); 
+              cursor: pointer;
+              outline: none; 
+              transition: 0.2s all; 
+                    }
+                    
+                    .btn{
+                        
+                padding: 50px;
+                margin: 50px;
+                font-family: cursive;
+                font-size: 15px;
+                border: none;
+                border-radius: 50px;
+                 background-image: linear-gradient( #BF9210  ,#D5A313 , #E8B31A , #EAC55B , #A48F51 , #6C5E34 , #27241D );
+                background-size: 800px;
+                box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24); 
+              cursor: pointer;
+              outline: none; 
+              transition: 0.2s all; 
+              animation: hover infinite;
+            }
+            @keyframes hover{
+                0%{
+                    background-position: right;
+                }
+                100%{
+            background-position: left;
+
+                }
+            }
+            .btnemp:active{
+                transform: scale(0.98);
+                 box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24); 
+            }
+                    
+                    .btndiv{
+                        margin-bottom: 50px;
+                        margin-left: 300px;
+                    }
+                    .datatable{
+                     
+                      margin: auto;
+                     box-shadow: 0px 0px 15px #000;
+                   
+                    }
+                    #edit{
+                             padding-left: 5px;
+                            margin-left: 5px;
+                        }
+                    .column{
+                        padding: 20px;
+                        margin: 20px;
+                        
+                        font-size: 20px; 
+                        font-weight: normal;
+                    }
+                    h2,h3{
+                        color: #6C5E34;
+                    }
+                    @media(max-width: 650px){
+                        h3{
+                            font-size: 15px;
+                        }
+                        .column{
+                            font-size: 15px;
+                        }
+                        .btn{
+                 padding: 20px;
+                margin: 20px;
+                font-family: cursive;
+                font-size: 10px;
+                border: none;
+                border-radius: 30px;
+               
+                        }
+                        #del{
+                             padding-top: 1px;
+                            margin-top: 1px;
+                        }
+                        #allbtn{
+                             padding-left: 50px;
+                            margin-left: 50px;
+                        }
+                        #edit{
+                             padding-left: 3px;
+                            margin-left: 3px;
+                        }
+                        .datatable{
+                     display: block;
+                     overflow: auto; 
+                     
+                      }
+                       
+                    }
+                    
+                </style>
+                 
+                 
+                 
+                 
+                 
+        <f:view>
+            <h:form>
+              
+                <table>  
+                    <tr > <th> <h3>Id:</h3></th>  <td> <h:inputText class="in" value="#{app.projId}"/> </td></tr>
+                    <tr > <th><h3>Name:</h3></th> <td> <h:inputText class="in" value="#{app.projName}"/></td> </tr>
+                    <tr > <th><h3>Manager(Project):</h3></th> <td><h:inputText class="in" value="#{app.projManger}"/></td>  </tr>
+                    <tr > <th><h3>ClientName:</h3></th> <td><h:inputText class="in" value="#{app.clientName}"/></td>  </tr>
+                 </table>
+     
+                <div id="allbtn">
+                <h:commandButton class="btn" action="#{formController2.OnSubmitAddproj()}" value="Add" />
+                <div id="del"><h:commandButton  class="btn" action="#{formController2.deleteonproj()}" value="Delete" /></div>
+               <div id="edit"> <h:commandButton class="btn" action="#{formController2.OnSubmitEditproj()}" value="Edit" /></div>
+            </div>
+            </h:form>
+        </f:view>
+        
+        
+    
+         <h:dataTable class="datatable" value="#{formController2.GetAllproj()}" var="thing" > 
+            <h:column>
+                <f:facet name="header"><h2>Id</h2></f:facet>
+                <h:outputText class="column" value="#{thing.projId}" />
+            </h:column>
+          <h:column>
+                <f:facet name="header"><h2>ProjectName</h2></f:facet>
+                <h:outputText class="column" value="#{thing.projName}" />
+            </h:column>
+             <h:column >
+                <f:facet class="down" name="header"><h2>projectManger</h2></f:facet>
+                <h:outputText class="column" value="#{thing.projManger}" />
+            </h:column >
+            <h:column  >
+                <f:facet class="down" name="header"><h2>clientName</h2></f:facet>
+                <h:outputText class="column" value="#{thing.clientName}" />
+            </h:column>
+           <h:column class="down" >
+                <f:facet class="down" name="header"><h2>Define</h2></f:facet>
+                <h:form>
+               <h:commandButton class="dbtn" action="#{formController2.OnShowproj(thing)}" value="Choose" />
+               </h:form>
+            </h:column>
+        </h:dataTable>
+            
+    </body>
+                  </ui:define>
+                 </ui:composition>
+</html>

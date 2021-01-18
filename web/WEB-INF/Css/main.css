@@ -1,0 +1,93 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 30, 2005, 1:25:03 AM
+    Author     : framawy
+*/
+
+            .dbtn{
+                         border: none;
+                border-radius: 50px;
+                 background-image: linear-gradient( #BF9210  ,#D5A313 , #E8B31A , #EAC55B , #A48F51 , #6C5E34 , #27241D );
+                background-size: 800px;
+                box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24); 
+              cursor: pointer;
+              outline: none; 
+              transition: 0.2s all; 
+                    }
+                    
+                    .bt{
+                        
+                padding: 50px;
+                margin: 50px;
+                font-family: cursive;
+                font-size: 15px;
+                border: none;
+                border-radius: 50px;
+                 background-image: linear-gradient( #BF9210  ,#D5A313 , #E8B31A , #EAC55B , #A48F51 , #6C5E34 , #27241D );
+                background-size: 800px;
+                box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24); 
+              cursor: pointer;
+              outline: none; 
+              transition: 0.2s all; 
+              animation: hover infinite;
+            }
+            @keyframes hover{
+                0%{
+                    background-position: right;
+                }
+                100%{
+            background-position: left;
+
+                }
+            }
+            .btnemp:active{
+                transform: scale(0.98);
+                 box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24); 
+            }
+                    
+            .btform{
+                padding-left:  100px;
+            }
+            
+        .datatable{
+            padding-left: 200px;
+             
+        }
+            .column{
+                        padding: 20px;
+                        margin: 20px;
+                        
+                        font-size: 20px; 
+                        font-weight: normal;
+                    }
+                    h2,h3{
+                        color: #6C5E34;
+                    }
+                    #mysectionpro{
+                        padding-left: 50px;
+                        
+                    }
+                    #mysectiondep{
+                         padding-left: 130px;
+                         margin-bottom: 50px;
+
+                    }
+                    @media(max-width: 650px){
+
+                      #btdept{
+                         
+                           padding-right: 50px;
+                        }
+                     
+                        .datatable{
+                            margin-right: 50px;
+                        }
+                        h1{
+                            color: black;
+                        }
+                        
+                }

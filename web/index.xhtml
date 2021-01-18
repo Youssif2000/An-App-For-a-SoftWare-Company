@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Entry Page</title>
+        <style>
+            .inputuser{
+               padding-left: 400px;
+                padding-top:  20px;
+                
+            }
+            .inputpass{
+               padding-left: 405px;
+                padding-top:  20px;
+             
+            }
+            .loginbutton{
+               padding: 10px;
+               padding-left: 15px;
+               padding-right:  15px;
+               margin-left: 520px;
+               margin-top: 20px;
+               border: none;
+               border-radius: 50px;
+               color: #ffffff;
+               background-image: linear-gradient( #CF1929  ,#9E1AB6 , #6F1AB6 , #200789 , #4528BD , #F13C73 , #FA0C53);
+             background-size: 200px;
+              animation: hover infinite;
+              font-size: 20px;
+              box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24); 
+              cursor: pointer;
+              outline: none; 
+              transition: 0.2s all; 
+           
+            }
+            .loginbutton:hover{
+          animation: hover 5s infinite;
+
+            }
+            @keyframes hover{
+                0%{
+                    background-position: right;
+                }
+                100%{
+            background-position: left;
+
+                }
+            }
+            .loginbutton:active{
+                transform: scale(0.98);
+                 box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24); 
+            }
+            .form{
+                 padding-top: 50px;
+                  padding-left:  80px;
+            }
+            
+        </style>
+    </h:head>
+    <h:body>
+        
+        <h1 align="center" style="color: red">Hello Every body</h1> 
+        <h1 align="center" style="color: red">This is Software Company</h1>
+        <h1 align="center" style="color: red">Our Mission is develop different technologies</h1>
+        
+        <f:view>
+                <h:form class="form">
+                    
+                <div class="inputuser">UserName : <h:inputText  class="input" value="#{entry.user}" /> </div>
+                <div class="inputpass"> Password : <h:inputSecret value="#{entry.pass}" /> </div>
+                <h:commandButton  class="loginbutton" value="Submit" action="${formController.checkUserAndPass()}" />
+                
+            </h:form>
+            
+        </f:view>
+        <script>
+            /*
+            
+          debugger;
+          var username = "admin";
+          var password = "admin";
+          var p = "UserName or password incorrect";
+              function checkEntry() {
+          var user = window.txt1.value;
+          var pass = window.txt2.value;
+          if(user !== username) {
+              document.show.innerHTML = p;
+          }
+          
+          if(pass !== password) {
+               document.show2.innerHTML = p;
+          }
+         
+      }
+     */
+        </script>
+    </h:body>
+</html>
+
